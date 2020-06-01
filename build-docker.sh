@@ -91,8 +91,7 @@ if [ "${CONTAINER_EXISTS}" != "" ]; then
 else
 	echo "starting else"
 	trap 'echo "got CTRL+C... please wait 5s" && ${DOCKER} stop -t 5 ${CONTAINER_NAME}' SIGINT SIGTERM
-	# Removing privilege
-	time ${DOCKER} run --name "${CONTAINER_NAME}" \
+	time ${DOCKER} run --name "${CONTAINER_NAME}" --privileged \
 		--volume "${CONFIG_FILE}":/config:ro \
 		-e "GIT_HASH=${GIT_HASH}" \
 		pi-gen \
