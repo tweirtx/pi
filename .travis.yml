@@ -1,2 +1,3 @@
 arch: arm64
-script: ./build.sh
+script: sudo ./build.sh
+language: shell
