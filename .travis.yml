@@ -2,4 +2,7 @@ arch: arm64
 script: sudo ./build.sh
 language: shell
 install: sudo apt-get install coreutils quilt parted qemu-user-static debootstrap zerofree zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl bc
-after_failure: sudo lsblk
+after_failure: sudo mount
+
+notifications:
+  email: false
