@@ -74,7 +74,9 @@ fi
 BUILD_OPTS="$(echo "${BUILD_OPTS:-}" | sed -E 's@\-c\s?([^ ]+)@-c /config@')"
 
 ${DOCKER} build -t pi-gen "${DIR}"
+echo "postbuild"
 if [ "${CONTAINER_EXISTS}" != "" ]; then
+	echo "starting if statement"
 	trap 'echo "got CTRL+C... please wait 5s" && ${DOCKER} stop -t 5 ${CONTAINER_NAME}_cont' SIGINT SIGTERM
 	time ${DOCKER} run --rm --privileged \
 		--volume "${CONFIG_FILE}":/config:ro \
@@ -85,7 +87,9 @@ if [ "${CONTAINER_EXISTS}" != "" ]; then
 	cd /pi-gen; ./build.sh ${BUILD_OPTS} &&
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
+	echo "if statement finished"
 else
+	echo "starting else"
 	trap 'echo "got CTRL+C... please wait 5s" && ${DOCKER} stop -t 5 ${CONTAINER_NAME}' SIGINT SIGTERM
 	time ${DOCKER} run --name "${CONTAINER_NAME}" --privileged \
 		--volume "${CONFIG_FILE}":/config:ro \
@@ -95,6 +99,7 @@ else
 	cd /pi-gen; ./build.sh ${BUILD_OPTS} &&
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
+	echo "else finished"
 fi
 echo "copying results from deploy/"
 ${DOCKER} cp "${CONTAINER_NAME}":/pi-gen/deploy .
