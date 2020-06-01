@@ -96,6 +96,7 @@ else
 		-e "GIT_HASH=${GIT_HASH}" \
 		pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
+	echo "after run"
 	cd /pi-gen; ./build.sh ${BUILD_OPTS} &&
 	rsync -av work/*/build.log deploy/" &
 	wait "$!"
