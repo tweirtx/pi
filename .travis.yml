@@ -1,4 +1,3 @@
-arch: arm64
 services: docker
 script: sudo ./build-docker.sh
 language: shell
