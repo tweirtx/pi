@@ -1,7 +1,6 @@
 script: sudo ./build-docker.sh
 language: shell
-install: sudo apt-get install coreutils quilt parted qemu-user-static:i386 debootstrap
-  zerofree zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl bc
+on_failure: traceroute mirror.sjc02.svwh.net
 notifications:
   email: false
 services: docker
