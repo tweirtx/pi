@@ -1,10 +1,10 @@
-script: travis_wait 40 sudo ./build.sh
+script: sudo ./build-docker.sh
 language: shell
 install: sudo apt-get install coreutils quilt parted qemu-user-static:i386 debootstrap
   zerofree zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl bc
 notifications:
   email: false
-
+services: docker
 deploy:
   provider: releases
   api_key:
