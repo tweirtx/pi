@@ -3,4 +3,4 @@
 if [ ! -d "${ROOTFS_DIR}" ]; then
 	copy_previous
 fi
-sudo apt update
+apt update
