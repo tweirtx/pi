@@ -1,8 +1,16 @@
 services: docker
 script: sudo ./build-docker.sh
 language: shell
-install: sudo apt-get install coreutils quilt parted qemu-user-static:i386 debootstrap zerofree zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl bc
-after_failure: sudo mount
-
+install: sudo apt-get install coreutils quilt parted qemu-user-static:i386 debootstrap
+  zerofree zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl bc
 notifications:
   email: false
+deploy:
+  provider: releases
+  api_key:
+    secure: m+GSFKEz0z0DczE21L+CN/u1gds9lakSK/DSj8xmEiK+NhBOAMyH1wB/+QDGhv7+Iw085v2pqYJ26Ua/gLAXXK+uC0LjoLAvvJGms8cS9XrxaS8i4Yt85k0wQYDW//PqjMtWapMcJAT7vCpvDaSzY+C5SzbxDmrrlarju7XfMsr82LnPgT36tzk6MT8M9LLsp6Yx/igbi0SpgVwEGWHBzryLrx5MtTVNF2QnkJ9Fjum2SzRlOX1VYTvVavXriyTCyvldKOIj6P/1o0WXRqDe4zTFtkZN/3W5jy/a1+YyMuzNwDfp8cPu3vkp3oD0xJR7jejHhLF0p44/zXs6ZXtsRrZWLYaGkbAmFGaFpRaJ+Uecnj2JA3Gllv2Bmy36RjgZP+qFc8Fjq4+WK4YOoUUHnAv19bzccV8ISFYmMfTiRU9Y/r7xaV9tgLGByQE3WIgakB2VxnvxdutqWSt/aLkkiWh8nuLFMYffpH041BtdbTq/9j5yhUG+wFdeKv6gkMgRwzgMEydFe4HDNJDokvpF2Ne5QkAI3dKroOkjBzjoa97GiiY0Zwnny9o0oIpJFB4royLI70Wni0vHsQ+RIh0POyxCRZcDe4/gSkykbSDgjgXslmDt4uX1QfA/GqsogMfcyvhJ3EIg41XRSz82LPQ3ASLfKoioHYno58a+BIlICLY=
+  file: deploy/*.zip
+  file_glob: true
+  on:
+    repo: tweirtx/pi
+  skip_cleanup: 'true'
