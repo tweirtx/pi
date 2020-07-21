@@ -5,6 +5,8 @@ curl https://bintray.com/user/downloadSubjectPublicKey?username=bintray | apt-ke
 
 apt update
 
+echo "Post update"
+
 # apt install gst-rpicamsrc rusty-engine gstreamer1.0-tools -y --allow-unauthenticated
 
 echo "start_x=1             # essential
@@ -16,3 +18,5 @@ After=network-online.target
 
 [Service]
 ExecStart=rusty-engine -d /dev/video0 -h 720 -w 1280 -i rpi" > /etc/systemd/system/rusty.service
+
+echo "Post service creation"
