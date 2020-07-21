@@ -4,6 +4,8 @@ if [ ! -d "${ROOTFS_DIR}" ]; then
 	copy_previous
 fi
 
+echo "deb [allow-insecure=yes trusted=yes] http://dl.bintray.com/tweirtx/streamline stretch main" >> /etc/apt/sources.list
+
 apt update
 
 apt install gst-rpicamsrc rusty-engine gstreamer1.0-tools -y --allow-unauthenticated
