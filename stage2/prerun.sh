@@ -7,4 +7,4 @@ echo "deb [allow-insecure=yes] https://dl.bintray.com/tweirtx/streamline stretch
 
 apt update
 
-apt install gst-rpicamsrc rusty-engine -y
+apt install gst-rpicamsrc rusty-engine gstreamer1.0-tools -y
