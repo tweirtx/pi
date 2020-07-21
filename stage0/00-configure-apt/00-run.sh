@@ -11,7 +11,7 @@ if [ -n "$APT_PROXY" ]; then
 else
 	rm -f "${ROOTFS_DIR}/etc/apt/apt.conf.d/51cache"
 fi
-
+apt-key add --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61
 on_chroot apt-key add - < files/raspberrypi.gpg.key
 on_chroot << EOF
 apt-get update
