@@ -11,8 +11,6 @@ if [ -n "$APT_PROXY" ]; then
 else
 	rm -f "${ROOTFS_DIR}/etc/apt/apt.conf.d/51cache"
 fi
-on_chroot apt-get install -y gnupg curl
-curl https://bintray.com/user/downloadSubjectPublicKey?username=bintray | apt-key add -
 on_chroot apt-key add - < files/raspberrypi.gpg.key
 on_chroot << EOF
 apt-get update

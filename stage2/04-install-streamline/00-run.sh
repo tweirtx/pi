@@ -1,6 +1,8 @@
 #!/bin/bash
 cat /etc/apt/sources.list
 
+curl https://bintray.com/user/downloadSubjectPublicKey?username=bintray | apt-key add -
+
 apt update
 
 # apt install gst-rpicamsrc rusty-engine gstreamer1.0-tools -y --allow-unauthenticated
