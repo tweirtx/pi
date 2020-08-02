@@ -20,7 +20,7 @@ libmtp-runtime
 rsync
 htop
 man-db
-policykit-1 libpam-systemd systemd=241-7~deb10u3+rpi1
+policykit-1 libpam-systemd systemd=241-7~deb10u3+rpi1 libsystemd=241-7~deb10u3+rpi1
 ssh-import-id
 rng-tools
 ethtool
