@@ -20,7 +20,7 @@ libmtp-runtime
 rsync
 htop
 man-db
-policykit-1
+policykit-1 libpam-systemd
 ssh-import-id
 rng-tools
 ethtool
