@@ -1,4 +1,5 @@
-deb http://raspbian.raspberrypi.org/raspbian/ RELEASE main contrib non-free rpi
+#deb http://raspbian.raspberrypi.org/raspbian/ RELEASE main contrib non-free rpi
 # Uncomment line below then 'apt-get update' to enable 'apt-get source'
 #deb-src http://raspbian.raspberrypi.org/raspbian/ RELEASE main contrib non-free rpi
 deb [trusted=yes] http://dl.bintray.com/tweirtx/streamline buster main
+deb http://raspbian.mirrors.lucidnetworks.net/raspbian/ RELEASE main contrib non-free rpi
