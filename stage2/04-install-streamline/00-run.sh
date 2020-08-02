@@ -8,9 +8,6 @@ apt install gnupg -y
 
 curl https://bintray.com/user/downloadSubjectPublicKey?username=bintray | apt-key add -
 
-echo "deb [trusted=yes] http://dl.bintray.com/tweirtx/streamline buster main
-deb http://raspbian.mirrors.lucidnetworks.net/raspbian/ RELEASE main contrib non-free rpi" > /etc/apt/sources.list
-
 apt update
 
 echo "Post update"
