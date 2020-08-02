@@ -21,6 +21,7 @@ EOF
 			dpkg --configure -a
 			if [ -n "$PACKAGES" ]; then
 				on_chroot << EOF
+apt-get update
 apt-get -o APT::Acquire::Retries=3 install --install-recommends -f -y $PACKAGES
 EOF
 			fi
@@ -31,6 +32,7 @@ EOF
 			PACKAGES="$(sed -f "${SCRIPT_DIR}/remove-comments.sed" < "${i}-packages")"
 			if [ -n "$PACKAGES" ]; then
 				on_chroot << EOF
+apt-get update
 apt-get -o APT::Acquire::Retries=3 install -y -f $PACKAGES
 EOF
 			fi
