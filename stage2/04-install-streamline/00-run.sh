@@ -19,7 +19,16 @@ echo "gpu_mem=128" >> /boot/config.txt
 
 cat /boot/config.txt
 
-cp rusty.service /etc/systemd/system/rusty.service
+echo "[Unit]
+      Description=Expose RPi Cam over RTSP
+      After=network-online.target
+
+      [Service]
+      ExecStart=rusty-engine -d /dev/video0 -h 720 -w 1280 -i rpi
+
+      [Install]
+      WantedBy=multi-user.target
+" > /etc/systemd/system/rusty.service
 
 systemctl enable rusty
 
