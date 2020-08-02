@@ -18,9 +18,10 @@ EOF
 		if [ -f "${i}-packages-nr" ]; then
 			log "Begin ${SUB_STAGE_DIR}/${i}-packages-nr"
 			PACKAGES="$(sed -f "${SCRIPT_DIR}/remove-comments.sed" < "${i}-packages-nr")"
+			dpkg --configure -a
 			if [ -n "$PACKAGES" ]; then
 				on_chroot << EOF
-apt-get -o APT::Acquire::Retries=3 install --no-install-recommends -y $PACKAGES
+apt-get -o APT::Acquire::Retries=3 install --install-recommends -f -y $PACKAGES
 EOF
 			fi
 			log "End ${SUB_STAGE_DIR}/${i}-packages-nr"
@@ -28,9 +29,10 @@ EOF
 		if [ -f "${i}-packages" ]; then
 			log "Begin ${SUB_STAGE_DIR}/${i}-packages"
 			PACKAGES="$(sed -f "${SCRIPT_DIR}/remove-comments.sed" < "${i}-packages")"
+			dpkg --configure -a
 			if [ -n "$PACKAGES" ]; then
 				on_chroot << EOF
-apt-get -o APT::Acquire::Retries=3 install -y $PACKAGES
+apt-get -o APT::Acquire::Retries=3 install -y -f $PACKAGES
 EOF
 			fi
 			log "End ${SUB_STAGE_DIR}/${i}-packages"
