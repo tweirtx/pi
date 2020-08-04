@@ -1,4 +1,4 @@
 xinit
-xorg-server
+xserver-xorg
 openbox
 chromium
