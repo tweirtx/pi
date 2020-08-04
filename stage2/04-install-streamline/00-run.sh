@@ -12,7 +12,12 @@ apt update
 
 echo "Post update"
 
-echo Insert stuff here
+echo "startx" >> /home/pi/.bashrc
+echo "xset s off
+      xset s noblank
+      xset -dpms
+      streamline-display" > /etc/xdg/openbox/autostart
 
-echo "Post service creation"
+curl https://raw.githubusercontent.com/RPi-Distro/raspi-config/master/autologin%40.service -o /etc/systemd/system/autologin.service
+
 EOF
