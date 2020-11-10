@@ -20,6 +20,9 @@ jobs:
 
       - name: Build in Docker
         run: sudo ./build-docker.sh
+      
+      - name: List deploy directory
+        run: ls deploy
 
       - name: Upload files to a GitHub release
         uses: svenstaro/upload-release-action@2.2.0
