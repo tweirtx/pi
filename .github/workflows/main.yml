@@ -23,6 +23,12 @@ jobs:
       
       - name: List deploy directory
         run: ls deploy
+      
+      - name: Create a Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
 
       - name: Upload files to a GitHub release
         uses: svenstaro/upload-release-action@2.2.0
