@@ -1,5 +1,1 @@
-#!/bin/bash -e
-
-if [ ! -d "${ROOTFS_DIR}" ]; then
-	copy_previous
-fi
+/home/travis/pi/stage1/prerun.sh
