@@ -3,4 +3,4 @@
 #deb-src http://raspbian.raspberrypi.org/raspbian/ RELEASE main contrib non-free rpi
 deb [trusted=yes] http://web.tweirtx.me/apt buster main
 #deb http://raspbian.mirrors.lucidnetworks.net/raspbian/ RELEASE main contrib non-free rpi
-deb http://raspbian.freemirror.org/raspbian/ RELEASE main contrib non-free rpi
+deb http://raspbian.freemirror.org/raspbian/ buster main contrib non-free rpi
