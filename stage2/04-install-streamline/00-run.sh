@@ -12,6 +12,8 @@ apt update
 
 echo "Post update"
 
+apt install -y streamline-display
+
 echo "startx" >> /home/pi/.bashrc
 echo "xset s off
       xset s noblank
