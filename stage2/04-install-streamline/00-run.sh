@@ -6,7 +6,7 @@ apt update
 
 apt install gnupg -y
 
-curl https://bintray.com/user/downloadSubjectPublicKey?username=bintray | apt-key add -
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 508DFD8C12535AB9
 
 apt update
 
