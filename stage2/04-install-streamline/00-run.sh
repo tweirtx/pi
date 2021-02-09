@@ -32,5 +32,18 @@ echo "[Unit]
 
 systemctl enable rusty
 
+echo "[Unit]
+      Description=Streamline Cam
+      After=network-online.target
+
+      [Service]
+      ExecStart=streamline-cam
+
+      [Install]
+      WantedBy=multi-user.target
+" > /etc/systemd/system/streamlinecam.service
+
+systemctl enable streamlinecam
+
 echo "Post service creation"
 EOF
