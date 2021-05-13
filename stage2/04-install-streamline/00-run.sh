@@ -12,7 +12,14 @@ apt update
 
 echo "Post update"
 
-echo Insert stuff here
+apt install -y streamline-display
 
-echo "Post service creation"
+echo "startx" >> /home/pi/.bashrc
+echo "xset s off
+      xset s noblank
+      xset -dpms
+      streamline-display" > /etc/xdg/openbox/autostart
+
+curl https://raw.githubusercontent.com/RPi-Distro/raspi-config/master/autologin%40.service -o /etc/systemd/system/autologin.service
+
 EOF
