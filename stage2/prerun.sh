@@ -4,4 +4,4 @@ if [ ! -d "${ROOTFS_DIR}" ]; then
 	copy_previous
 fi
 
-apt install default-jdk -y
+# apt install default-jdk -y
