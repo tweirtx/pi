@@ -18,6 +18,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Delete old work
+        run: sudo docker rm -v pigen_work
+
       - name: Build in Docker
         run: sudo ./build-docker.sh
       
