@@ -37,4 +37,5 @@ jobs:
         with:
            file: "deploy/*.zip"
            tags: true
+           update_latest_release: true
          
