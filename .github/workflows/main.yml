@@ -18,11 +18,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-      - name: Install dependencies
-        run: sudo apt install quilt qemu-user-static debootstrap libarchive-tools qemu-utils
+#      - name: Install dependencies
+#        run: sudo apt install quilt qemu-user-static debootstrap libarchive-tools qemu-utils
 
       - name: Build
-        run: sudo ./build.sh
+        run: sudo ./build-docker.sh
       
       - name: List deploy directory
         run: ls deploy
