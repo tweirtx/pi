@@ -21,6 +21,9 @@ jobs:
 #      - name: Install dependencies
 #        run: sudo apt install quilt qemu-user-static debootstrap libarchive-tools qemu-utils
 
+      - name: Cleanup last job
+        run: sudo rm -rf "/home/ubuntu/actions-runner/_work/pi/pi/deploy"
+
       - name: Build
         run: sudo ./build-docker.sh
       
