@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build in Docker
-        run: sudo ./build-docker.sh
+        run: sudo ./build.sh
       
       - name: List deploy directory
         run: ls deploy
