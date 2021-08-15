@@ -1,6 +1,6 @@
-IMG_NAME=streamline
+IMG_NAME=streamlinecam
 LOCALE_DEFAULT=en_US.UTF-8
-TARGET_HOSTNAME=streamline
+TARGET_HOSTNAME=streamlinecam
 KEYBOARD_KEYMAP=us
 KEYBOARD_LAYOUT="English (US)"
 TIMEZONE_DEFAULT=America/Chicago

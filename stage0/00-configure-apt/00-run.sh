@@ -11,7 +11,6 @@ if [ -n "$APT_PROXY" ]; then
 else
 	rm -f "${ROOTFS_DIR}/etc/apt/apt.conf.d/51cache"
 fi
-
 on_chroot apt-key add - < files/raspberrypi.gpg.key
 on_chroot << EOF
 dpkg --add-architecture armhf
