@@ -12,12 +12,18 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ARM64
-
+    
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+#      - name: Install dependencies
+#        run: sudo apt install quilt qemu-user-static debootstrap libarchive-tools qemu-utils
 
+      - name: Cleanup last job
+        run: sudo rm -rf "/home/ubuntu/actions-runner/_work/pi/pi/deploy"
+        
       - name: Delete old work
         run: sudo docker rm -v pigen_work
 
@@ -26,12 +32,13 @@ jobs:
       
       - name: List deploy directory
         run: ls deploy
-
-      - name: Upload files to a GitHub release
-        uses: svenstaro/upload-release-action@2.2.0
+        
+      - name: Upload to Github Release
+        uses: xresloader/upload-to-github-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: deploy/*.zip
-          file_glob: true
-          tag: ${{ github.ref }}
+           file: "deploy/*.zip"
+           tags: true
+           update_latest_release: true
          
